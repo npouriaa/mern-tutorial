@@ -1,0 +1,32 @@
+{
+  "name": "goal-setter",
+  "version": "1.0.0",
+  "description": "goal setter app for mern tutorial",
+  "homepage": "https://github.com/npouriaa/mern-tutorial#readme",
+  "bugs": {
+    "url": "https://github.com/npouriaa/mern-tutorial/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npouriaa/mern-tutorial.git"
+  },
+  "license": "MIT",
+  "author": "Pouria Navipour",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "joi": "^18.2.3",
+    "mongoose": "^9.7.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
