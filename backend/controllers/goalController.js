@@ -11,6 +11,24 @@ const getGoals = asyncHandler(async (req, res) => {
   res.status(200).json(goals);
 });
 
+// @desc    Get a goal by Id
+// @route   Get /api/goals/:id
+// @access  Private
+const getGoalById = asyncHandler(async (req, res) => {
+  // Check if ID format is valid
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({
+      message: "Goal not found!",
+    });
+  }
+
+  const goal = await Goal.findById(req.params.id);
+  if (!goal) {
+    return res.status(400).json({ message: `Goal not found!` });
+  }
+  return res.status(200).json(goal);
+});
+
 // @desc    Create a goal
 // @route   POST /api/goals
 // @access  Private
@@ -91,4 +109,4 @@ const deleteGoal = asyncHandler(async (req, res) => {
     .json({ message: `Goal deleted successfully!`, id: req.params.id });
 });
 
-module.exports = { getGoals, setGoal, updateGoal, deleteGoal };
+module.exports = { getGoals, getGoalById, setGoal, updateGoal, deleteGoal };
